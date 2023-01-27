@@ -1,53 +1,26 @@
 @import 'fonts';
 @import 'reset';
+@import 'colors';
+@import 'mixins';
 
-
-$main: #FF3D00;
-$second: #0085FF;
-$black: #202020;
-$stroke: #E3E3E3;
-$placeholder: #808080;
-$back: #F7F7F7;
-$white: #FFFFFF;
-
-@mixin font($size) {
-    font-family: 'Montserrat';
-    font-weight: $size;
-}
-
-@mixin btn($color) {
-    width: 100%;
-    border: 1px solid $color;
-    color: $color;
-    border-radius: 5px;
-    padding: 10px 0;
-    font-size: 14px;
-    text-align: center;
-    @include font(900);
-    transition: 0.4s;
-    cursor: pointer;
-}
-@mixin activeBtn($color){
-    background-color: $color;
-    color: $white;
-    
-}
-@mixin cover($height) {
-    width: 100%;
-    padding-top: $height;
-}
-.body{
+body {
     background-color: $back;
 }
 
-form{
+form {
     background-color: $white;
     padding: 15px 20px 25px 20px;
     border: 1px solid $stroke;
     border-radius: 8px;
 
 }
-input[type="text"]{
+
+.options{
+    border: 1px solid $stroke;
+    border-radius: 6px;
+}
+
+input[type="text"], .select {
     margin-left: -11px;
     width: 100%;
     border: 1px solid $stroke;
@@ -56,67 +29,124 @@ input[type="text"]{
     @include font(700);
     font-size: 10px;
 }
-.form-container{
+input[type="text"]:placeholder-shown, .select{
+    color: $placeholder;
+}
+.select{
+    cursor: pointer;
+    
+    &.active{
+        color: $black;
+    }
+}
+
+
+
+
+.form-container {
     margin: 0 11px;
 }
 
-.btn{
+.btn {
     @include btn($main);
+
+    &.second {
+        @include btn($second);
+
+        &:hover {
+            @include activeBtn($second);
+        }
+
+    }
+
+    &:hover {
+        @include activeBtn ($main);
+    }
 }
 
-.btn.second {
-    @include btn($second);
-}
-.btn:hover{
-    @include activeBtn ($main);
-}
-
-.btn.second:hover{
-    @include activeBtn($second);
-}
-
-h1, h2, h3, h4{
+h1,
+h2,
+h3,
+h4 {
     @include font(900);
 }
-h1{
+
+h1 {
     font-size: 20px;
 }
-h2{
+
+h2 {
     font-size: 16px;
 }
-h3{
+
+h3 {
     font-size: 14px;
 }
-h4{
+
+h4 {
     font-size: 12px;
 }
-p{
+
+p {
     @include font(400);
+    font-size: 12px;
+
+    &.context {
+        font-size: 10px;
+    }
 }
 
-.cover{
+.cover {
+
+    width: 100%;
+    padding-top: 100%;
     position: relative;
     @include cover(100%);
+
+    img,
+    &-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    &.rectangle {
+        @include cover(calc(350 / (543 / 100)) * 1%);
+    }
 }
 
-.cover img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.cover.rectangle{
-   @include cover(350 / (543 / 100) * 1%);
-}
-
-
-.wrapper{
+.wrapper {
     margin: 0 auto;
     max-width: 1100px;
     padding: 0 10px;
 }
 
 
+.container {
+    display: flex;
+    justify-content: space-between;
+}
 
+.card {
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    color: white;
+    padding: 10px;
+
+    &-content {
+        padding: 10px;
+    }
+
+}
+
+section {
+    margin-bottom: 80px;
+}
+
+@import 'header';
+@import 'main';
+@import 'cards';
+@import 'main-form';

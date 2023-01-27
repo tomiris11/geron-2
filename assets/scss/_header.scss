@@ -1,0 +1,51 @@
+body{
+    padding: 0 16px;
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 38px 0;
+        .burger-menu{
+            padding: 6px;
+            border-radius: 6px;
+            transition: 0.5s;
+            &:hover{
+                background-color: plum;
+                cursor: pointer;
+            }
+            &:active{
+                scale: 0.8;
+            }
+            .line{
+                width: 18px;
+                height: 2px;
+                background-color: $black;
+                margin-bottom: 4px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        h1{
+            text-transform: uppercase;
+            transition: 0.5s;
+            &.active{
+                color: $pink;
+            }
+            &:hover{
+                color: $orange;
+            }
+        }
+        svg{
+            &:first-child{
+                margin-right: 20px;
+            }
+            path{
+                transition: 0.5s;
+                &:hover{
+                    fill: $orange;
+                }
+            }
+        }
+    }
+}

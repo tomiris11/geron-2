@@ -25,7 +25,7 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-c, input[type=email], input[type=password] {
+input[type=text], input[type=email], input[type=password] {
   border: none;
   outline: none;
   background-color: transparent;
@@ -45,7 +45,7 @@ li {
   list-style: none;
 }
 
-.body {
+body {
   background-color: #F7F7F7;
 }
 
@@ -56,7 +56,12 @@ form {
   border-radius: 8px;
 }
 
-input[type=text] {
+.options {
+  border: 1px solid #E3E3E3;
+  border-radius: 6px;
+}
+
+input[type=text], .select {
   margin-left: -11px;
   width: 100%;
   border: 1px solid #E3E3E3;
@@ -65,6 +70,17 @@ input[type=text] {
   font-family: "Montserrat";
   font-weight: 700;
   font-size: 10px;
+}
+
+input[type=text]:placeholder-shown, .select {
+  color: #808080;
+}
+
+.select {
+  cursor: pointer;
+}
+.select.active {
+  color: #202020;
 }
 
 .form-container {
@@ -84,7 +100,6 @@ input[type=text] {
   transition: 0.4s;
   cursor: pointer;
 }
-
 .btn.second {
   width: 100%;
   border: 1px solid #0085FF;
@@ -98,18 +113,19 @@ input[type=text] {
   transition: 0.4s;
   cursor: pointer;
 }
-
+.btn.second:hover {
+  background-color: #0085FF;
+  color: #FFFFFF;
+}
 .btn:hover {
   background-color: #FF3D00;
   color: #FFFFFF;
 }
 
-.btn.second:hover {
-  background-color: #0085FF;
-  color: #FFFFFF;
-}
-
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: "Montserrat";
   font-weight: 900;
 }
@@ -133,22 +149,26 @@ h4 {
 p {
   font-family: "Montserrat";
   font-weight: 400;
+  font-size: 12px;
+}
+p.context {
+  font-size: 10px;
 }
 
 .cover {
+  width: 100%;
+  padding-top: 100%;
   position: relative;
   width: 100%;
   padding-top: 100%;
 }
-
-.cover img {
+.cover img, .cover-content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-
 .cover.rectangle {
   width: 100%;
   padding-top: 64.4567219153%;
@@ -158,6 +178,165 @@ p {
   margin: 0 auto;
   max-width: 1100px;
   padding: 0 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+}
+.card-content {
+  padding: 10px;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+body {
+  padding: 0 16px;
+}
+body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 38px 0;
+}
+body header .burger-menu {
+  padding: 6px;
+  border-radius: 6px;
+  transition: 0.5s;
+}
+body header .burger-menu:hover {
+  background-color: plum;
+  cursor: pointer;
+}
+body header .burger-menu:active {
+  scale: 0.8;
+}
+body header .burger-menu .line {
+  width: 18px;
+  height: 2px;
+  background-color: #202020;
+  margin-bottom: 4px;
+}
+body header .burger-menu .line:last-child {
+  margin-bottom: 0;
+}
+body header h1 {
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+body header h1.active {
+  color: #EF5DA8;
+}
+body header h1:hover {
+  color: orange;
+}
+body header svg:first-child {
+  margin-right: 20px;
+}
+body header svg path {
+  transition: 0.5s;
+}
+body header svg path:hover {
+  fill: orange;
+}
+
+.main-container {
+  width: 49%;
+  background-color: #0085FF;
+  border-radius: 8px;
+}
+.main-container img {
+  border-radius: 8px;
+}
+.main-container .cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-container h1 {
+  color: #FFFFFF;
+  margin: 35px;
+  font-weight: 900;
+  font-size: 24px;
+}
+.main-container h1:first-child {
+  margin-bottom: 0;
+}
+
+.cards .card {
+  width: 18.4%;
+}
+.cards .card img {
+  border-radius: 8px 8px 0 0;
+}
+.cards h2 {
+  margin-bottom: 15px;
+  color: #202020;
+}
+.cards p {
+  margin-bottom: 8px;
+  color: #6A6A6A;
+}
+
+.main-form {
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+.main-form h1 {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.main-form input {
+  margin-bottom: 13px;
+}
+.main-form .select {
+  display: flex;
+  position: relative;
+  margin-bottom: 26px;
+}
+.main-form .select:hover .pick svg {
+  fill: #FF3D00;
+}
+.main-form .select:hover .options {
+  display: block;
+}
+.main-form .select .pick {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 14px;
+}
+.main-form .select .options {
+  display: none;
+  background-color: #FFFFFF;
+  width: 100%;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  transform: translate(0, 100%);
+}
+.main-form .select .options .opt {
+  padding: 10px 11px;
+  transition: 0.4s;
+  color: #202020;
+}
+.main-form .select .options .opt:hover {
+  background-color: #FF3D00;
+  color: #FFFFFF;
+  transition: 0.4s;
 }
 
 /*# sourceMappingURL=style.css.map */

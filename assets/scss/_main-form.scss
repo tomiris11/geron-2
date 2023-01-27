@@ -1,0 +1,64 @@
+.main-form{
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    
+
+    h1{
+        text-align: center;
+        margin-bottom: 26px;
+    }
+    input {
+        margin-bottom: 13px ;
+    }
+    .select {
+        display: flex;
+        position: relative;
+        margin-bottom: 26px;
+        
+        &:hover{
+            .pick{
+                svg {
+                    
+                    fill: $main;
+                }
+            }
+            .options{
+                display: block;
+            }
+        }  
+        
+        .pick
+        {position: absolute;
+            display: flex;
+            align-items: center;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 0 14px;
+            
+
+        }
+        .options{
+            display: none;
+            background-color: $white;
+            width: 100%;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transform: translate(0, 100%);
+
+            .opt{
+                padding: 10px 11px;
+                transition: 0.4s;
+                color: $black;
+
+                &:hover{
+                    background-color: $main;
+                    color: $white;
+                    transition: 0.4s;
+                }
+            }
+        }
+    }
+}
